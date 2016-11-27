@@ -287,7 +287,8 @@ tts_pico(){
   # no need to use split_into_paragraphs()
   pico_synth "$InputText"
   echo "$MsgInfoPlayback"
-  $Player "$OutFile" > /dev/null 2>&1
+  sox "$OutFile" increased_treble.wav gain -30 treble +30
+  $Player increased_treble.wav > /dev/null 2>&1
 }
 
 cleanup(){
